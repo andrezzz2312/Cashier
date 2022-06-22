@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link rel="preconnect" href="https://scripts.sirv.com" crossorigin />
+    <link rel="preconnect" href="https://listyara.sirv.com" crossorigin />
+    <link rel="dns-prefetch" href="https://scripts.sirv.com" />
+    <link rel="dns-prefetch" href="https://listyara.sirv.com" />
+
+    <title>Holding</title>
+  </head>
+  <body>
+    <div class="container">
+      <div id="loop" class="videoContainer">
+        <video
+          id="loopvideo"
+          class="loopvideo"
+          src="assets/loop.mp4"
+          playsinline
+          muted
+          autoplay
+          loop
+        ></video>
+      </div>
+
+      <div id="mainButtons" class="show">
+        <div class="centerContainer">
+          <div class="buttonContainer">
+            <button id="compactFP_button" class="button">
+              Compact FootPrint
+            </button>
+          </div>
+        </div>
+        <div class="centerContainer">
+          <div class="buttonContainer">
+            <button id="fullscreen_button" class="button">
+              <i
+                id="expand"
+                class="fa-solid fa-up-right-and-down-left-from-center"
+              ></i>
+              <i
+                id="contract"
+                class="fa-solid fa-down-left-and-up-right-to-center disabledb"
+              ></i>
+            </button>
+          </div>
+        </div>
+        <div class="centerContainer">
+          <div class="svgContainer">
+            <svg id="compactFP_line_svg" class="svg" width="100%" height="100%">
+              <line x1="22.5%" y1="11%" x2="25.7%" y2="23.8%" stroke="#f04923" stroke-width="3"  />
+              <circle
+                class="svgDot"
+                id="compactFP_circle"
+                cx="25.7%"
+                cy="23.8%"
+                r="6px"
+                fill="#f04923"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div class="centerContainer">
+          <div class="buttonContainer">
+            <button id="intuitiveH_button" class="button">
+            Intuitive HMI with Pallet Configuration
+            </button>
+          </div>
+        </div>
+        <div class="centerContainer">
+          <div class="svgContainer">
+            <svg id="intuitiveH_line_svg" class="svg" width="100%" height="100%">
+              <line x1="65%" y1="13%" x2="57%" y2="49%" stroke="#f04923" stroke-width="3"  />
+              <circle
+                id="intuitiveH_circle"
+                class="svgDot"
+                cx="57%"
+                cy="49%"
+                r="6px"
+                fill="#f04923"
+              />
+            </svg>
+          </div>
+        </div>
+        <div class="centerContainer">
+          <div class="buttonContainer">
+            <button id="easyC_button" class="button">Easy Changeover</button>
+          </div>
+        </div>
+        <div class="centerContainer">
+          <div class="svgContainer">
+            <svg id="easyC_line_svg" class="svg" width="100%" height="100%">
+              <line
+                x1="48.6%"
+                y1="12.5%"
+                x2="53%"
+                y2="31%"
+                stroke="#f04923" stroke-width="3" 
+                
+              />
+              <circle
+                id="easyC_circle"
+                class="svgDot"
+                cx="53%"
+                cy="31%"
+                r="6px"
+                fill="#f04923"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div class="centerContainer">
+          <div class="buttonContainer">
+            <button id="flexibleI_button" class="button">
+              Flexible Infeed Directions
+            </button>
+          </div>
+        </div>
+
+        <div class="centerContainer">
+          <div class="svgContainer">
+            <svg id="flexibleI_line_svg" class="svg" width="100%" height="100%">
+              <line x1="74%" y1="70%" x2="68.5%" y2="62%" stroke="#f04923" stroke-width="3"  />
+              <circle
+                id="flexibleI_circle"
+                class="svgDot"
+                cx="68.5%"
+                cy="62%"
+                r="6px"
+                fill="#f04923"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div class="centerContainer">
+          <div class="buttonContainer">
+            <button id="maximumU_button" class="button">Maximum Uptime</button>
+          </div>
+        </div>
+
+        <div class="centerContainer">
+          <div class="svgContainer">
+            <svg id="maximumU_line_svg" class="svg" width="100%" height="100%">
+              <line x1="57.5%" y1="82%" x2="52.2%" y2="55%" stroke="#f04923" stroke-width="3"  />
+              <circle
+                id="maximumU_circle"
+                class="svgDot"
+                cx="52.2%"
+                cy="55%"
+                r="6px"
+                fill="#f04923"
+              />
+            </svg>
+          </div>
+        </div>
+        <div class="centerContainer">
+          <div class="buttonContainer">
+            <button id="quickS_button" class="button">Quick Start-Up</button>
+          </div>
+        </div>
+
+        <div class="centerContainer">
+          <div class="svgContainer">
+            <svg id="quickS_line_svg" class="svg" width="100%" height="100%">
+              <line x1="20%" y1="83.5%" x2="35.4%" y2="74%" stroke="#f04923" stroke-width="3"  />
+              <circle
+                id="quickS_circle"
+                class="svgDot"
+                cx="35.4%"
+                cy="74%"
+                r="6px"
+                fill="#f04923"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div class="centerContainer">
+          <div class="buttonContainer">
+            <div class="viewR_container">
+              <button id="viewR_button" class="viewR_a">View Rotation</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+      <div id="showCont" class="showCont hidden short-vanish"></div>
+      <div class="warning">
+        <div class="modal">
+          <i class="fa-solid fa-circle-exclamation warnIcon"></i>
+          <span class="warningText"></span>
+        </div>
+      </div>
+      <div class="alertdiv">
+        <div class="modalalert"><span id='close' class="x">&#10006</span>
+          <i class="fa-solid fa-circle-exclamation alertIcon"></i>
+          
+          <span class="alertText">
+           Using this website on a Chrome web browser is recommended
+          </span>
+        </div>
+      </div>
+      <div class="loader">
+        <i  class="fa-solid fa-spinner loadingIcon"></i>
+      </div>
+      <div class="initial"></div>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
+  <script src="https://scripts.sirv.com/sirv.js"></script>
+  <script src="js/main.js"></script>
+</html>
