@@ -33,6 +33,7 @@
 .mainButtons {
   opacity: 0;
 }
+
 .initial {
   position: absolute;
   height: 100%;
@@ -61,7 +62,7 @@ body {
   margin-bottom: 1rem;
   font-size: calc(5px + (17 - 5) * ((100vw - 320px) / (1440 - 320)));
   pointer-events: all;
-  border-radius: 1vh;
+  border-radius: 0.5vh;
   animation: morph 2s ease-in-out infinite;
 }
 
@@ -75,6 +76,7 @@ body {
   align-items: center;
   justify-content: center;
   pointer-events: none;
+  z-index: 1;
 }
 .centerContainer > * {
   pointer-events: all;
@@ -85,6 +87,12 @@ body {
 }
 .buttonContainer {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-left: 4rem;
+
+  justify-content: center;
+  gap: 1rem;
 }
 #buttonContainer_backButton {
   pointer-events: none;
@@ -144,12 +152,12 @@ video::slotted::-webkit-media-controls-container {
 }
 
 .button {
-  border-radius: 1vh;
-  position: absolute;
+  border-radius: 0.5vh;
   border: none;
-  padding: 0.5% 0.8%;
+  width: 20%;
+  padding: 1% 1%;
   color: white;
-  background-color: #ff4500;
+  background-color: #114494;
   cursor: pointer;
   z-index: 2;
   overflow: hidden;
@@ -170,38 +178,6 @@ a {
   z-index: -1;
 }
 
-#compactFP_button {
-  right: 77%;
-  top: 8%;
-}
-#fullscreen_button {
-  right: 1%;
-  top: 5%;
-}
-#intuitiveH_button {
-  left: 64.2%;
-  top: 11%;
-}
-#easyC_button {
-  right: 51%;
-  top: 9%;
-}
-#easilyAGP_button {
-  left: 77%;
-  top: 38%;
-}
-#flexibleI_button {
-  left: 73.5%;
-  top: 69%;
-}
-#maximumU_button {
-  left: 57.2%;
-  top: 81%;
-}
-#quickS_button {
-  right: 79.5%;
-  top: 82.7%;
-}
 #test {
   left: 8%;
   top: 50%;
