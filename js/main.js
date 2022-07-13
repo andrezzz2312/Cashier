@@ -227,7 +227,7 @@ function createContent(
 function setFontSizes() {
   const test = document.querySelectorAll('.button')
 
-  let fontvar = `calc(9px + (20 - 9) * ((${
+  let fontvar = `calc(10px + (20 - 10) * ((${
     containVideoWidth + 'px'
   } - 320px) / (1440 - 320)))`
 
@@ -284,12 +284,12 @@ function createBackButton() {
   buttonContainerMade.style.width = containVideoWidth + 'px'
   buttonContainerMade.style.height = containVideoHeight + 'px'
   backButton = document.createElement('button')
-  let fontvar = `calc(7px + (17 - 7) * ((${
+  let fontvar = `calc(10px + (20 - 10) * ((${
     containVideoWidth + 'px'
   } - 320px) / (1440 - 320)))`
   backButton.style.fontSize = fontvar
   backButton.classList.add('viewR_a')
-  backButton.textContent = 'Back to Features'
+  backButton.textContent = 'Back'
   backButtonContainer = document.createElement('div')
   backButtonContainer.classList.add('viewR_container')
   showCont.appendChild(centerContainerMade)
@@ -428,45 +428,40 @@ fullscreen_button.addEventListener('click', function (e) {
   }
 })
 
-compactFP_button.addEventListener('click', function (e) {
-  console.time('test1')
+systemC_button.addEventListener('click', function (e) {
+
   HideShowMainButtons()
+  createVideos(
+    'assets/highRes/systemC1.mp4',
+    'assets/highRes/systemC2.mp4',
+    'assets/highRes/systemC3.mp4'
+  )
+  // if (x.matches) {
+  //   createVideos(
+  //     'assets/compactFP/compactFP_C1.mp4',
+  //     'assets/compactFP/compactFP_C2.mp4',
+  //     'assets/compactFP/compactFP_C3.mp4'
+  //   )
+  // } else {
+  //   createVideos(
+  //     'assets/highRes/systemC1.mp4',
+  //     'assets/highRes/systemC2.mp4',
+  //     'assets/highRes/systemC3.mp4'
+  //   )
+  // }
 
-  if (x.matches) {
-    createVideos(
-      'assets/compactFP/compactFP_C1.mp4',
-      'assets/compactFP/compactFP_C2.mp4',
-      'assets/compactFP/compactFP_C3.mp4'
-    )
-  } else {
-    createVideos(
-      'assets/compactFP/compactFP1.mp4',
-      'assets/compactFP/compactFP2.mp4',
-      'assets/compactFP/compactFP3.mp4'
-    )
-  }
-
-  createContent('15%', '45%', 'Compact Footprint')
-  labelCont.style.borderRadius = '0.8rem'
-  labelCont.style.transform = 'scale(1)'
-  label.style.opacity = '1'
+  
   createBackButton()
 
   window.addEventListener('resize', function (e) {
-    if (showCont.hasChildNodes()) {
-      const textContainer = document.querySelector('#centerContainer_text')
+    if (showCont.hasChildNodes()) {     
 
       const backButtonContainer = document.querySelector(
         '#centerContainer_backButton'
-      )
-      textContainer.remove()
+      )     
 
-      backButtonContainer.remove()
-      createContent('15%', '45%', 'Compact Footprint')
-      labelCont.style.borderRadius = '0.8rem'
-      label.style.borderRadius = '0.8rem'
-      labelCont.style.transform = 'scale(1)'
-      label.style.opacity = '1'
+      backButtonContainer.remove()    
+   
       createBackButton()
     }
   })
@@ -497,7 +492,7 @@ compactFP_button.addEventListener('click', function (e) {
       }, 1000)
 
       if (video1check && video2check && video3check) {
-        console.timeEnd('test1')
+        
         loader.classList.remove('show')
         loader.classList.add('short-vanish')
         loader.style.zIndex = '-200'
@@ -517,58 +512,127 @@ compactFP_button.addEventListener('click', function (e) {
   }
 })
 
-intuitiveH_button.addEventListener('click', function (e) {
+startS_button.addEventListener('click', function (e) {
+  
   HideShowMainButtons()
-
-  if (x.matches) {
-    createVideos(
-      'assets/intuitiveH/intuitiveH_C1.mp4',
-      'assets/intuitiveH/intuitiveH_C2.mp4',
-      'assets/intuitiveH/intuitiveH_C3.mp4'
-    )
-  } else {
-    createVideos(
-      'assets/intuitiveH/intuitiveH1.mp4',
-      'assets/intuitiveH/intuitiveH2.mp4',
-      'assets/intuitiveH/intuitiveH3.mp4'
-    )
-  }
-
-  createContent(
-    '12%',
-    '28%',
-    `Intuitive HMI with\nPallet Configuration&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`,
-    `Easily create, modify, copy or clear recipes`,
-    'intuitiveH_p',
-    '',
-    '',
-    '2vh 4vh 2vh 4vh'
+  createVideos(
+    'assets/highRes/startS1.mp4',
+    'assets/highRes/startS2.mp4',
+    'assets/highRes/startS3.mp4'
   )
+  // if (x.matches) {
+  //   createVideos(
+  //     'assets/compactFP/compactFP_C1.mp4',
+  //     'assets/compactFP/compactFP_C2.mp4',
+  //     'assets/compactFP/compactFP_C3.mp4'
+  //   )
+  // } else {
+  //   createVideos(
+  //     'assets/highRes/startS1.mp4',
+  //     'assets/highRes/startS2.mp4',
+  //     'assets/highRes/startS3.mp4'
+  //   )
+  // }
+
+ 
+  createBackButton()
+
+  window.addEventListener('resize', function (e) {
+    if (showCont.hasChildNodes()) {
+      
+      const backButtonContainer = document.querySelector(
+        '#centerContainer_backButton'
+      ) 
+
+      backButtonContainer.remove()
+   
+      createBackButton()
+    }
+  })
+
+  check1()
+
+  let video1check = false
+  let video2check = false
+  let video3check = false
+
+  function check1() {
+    clearcheck = setInterval(repeatcheck, 500)
+    function repeatcheck() {
+      if (video1.readyState === 4) {
+        video1check = true
+      }
+      if (video2.readyState === 4) {
+        video2check = true
+      }
+      if (video3.readyState === 4) {
+        video3check = true
+      }
+      setTimeout(() => {
+        if (!video1check || !video2check || !video3check) {
+          loader.style.zIndex = '200'
+          loader.classList.add('show')
+        }
+      }, 1000)
+
+      if (video1check && video2check && video3check) {
+    
+        loader.classList.remove('show')
+        loader.classList.add('short-vanish')
+        loader.style.zIndex = '-200'
+
+        clearInterval(clearcheck)
+
+        loop.classList.add('short-vanish')
+        setTimeout(() => {
+          video1.play()
+          video1.addEventListener('ended', () => {
+            InterpolateVideo(loop, video1, video2)
+            HideShowCont()
+          })
+        }, 1000)
+      }
+    }
+  }
+})
+
+endS_button.addEventListener('click', function (e) {
+  HideShowMainButtons()
+  createVideos(
+    'assets/highRes/endS1.mp4',
+    'assets/highRes/endS2.mp4',
+    'assets/highRes/endS3.mp4'
+  )
+  // if (x.matches) {
+  //   createVideos(
+  //     'assets/intuitiveH/intuitiveH_C1.mp4',
+  //     'assets/intuitiveH/intuitiveH_C2.mp4',
+  //     'assets/intuitiveH/intuitiveH_C3.mp4'
+  //   )
+  // } else {
+  //   createVideos(
+  //     'assets/highRes/endS1.mp4',
+  //     'assets/highRes/endS2.mp4',
+  //     'assets/highRes/endS3.mp4'
+  //   )
+  // }
+
+ 
 
   createBackButton()
 
   window.addEventListener('resize', function (e) {
     if (showCont.hasChildNodes()) {
-      const textContainer = document.querySelector('#centerContainer_text')
+  
 
       const backButtonContainer = document.querySelector(
         '#centerContainer_backButton'
       )
-      textContainer.remove()
+
 
       backButtonContainer.remove()
-      createContent(
-        '12%',
-        '24%',
-        `Intuitive aHMI with\nPallet Configuration&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`,
-        `Easily create, modify, copy or clear recipes`,
-        'intuitiveH_p',
-        '',
-        '',
-        '2vh 4vh 2vh 4vh',
-        0
-      )
-      animations()
+     
+      
       createBackButton()
     }
   })
@@ -608,7 +672,7 @@ intuitiveH_button.addEventListener('click', function (e) {
         setTimeout(() => {
           video1.play()
           video1.addEventListener('ended', () => {
-            animations()
+          
             InterpolateVideo(loop, video1, video2)
             HideShowCont()
           })
@@ -618,61 +682,40 @@ intuitiveH_button.addEventListener('click', function (e) {
   }
 })
 
-easyC_button.addEventListener('click', function (e) {
+manualD_button.addEventListener('click', function (e) {
   HideShowMainButtons()
+  createVideos(
+    'assets/highRes/manualD1.mp4',
+    'assets/highRes/manualD2.mp4',
+    'assets/highRes/manualD3.mp4'
+  )
+  // if (x.matches) {
+  //   createVideos(
+  //     'assets/easyC/easyC_C1.mp4',
+  //     'assets/easyC/easyC_C2.mp4',
+  //     'assets/easyC/easyC_C3.mp4'
+  //   )
+  // } else {
+  //   createVideos(
+  //     'assets/highRes/manualD1.mp4',
+  //     'assets/highRes/manualD2.mp4',
+  //     'assets/highRes/manualD3.mp4'
+  //   )
+  // }
 
-  if (x.matches) {
-    createVideos(
-      'assets/easyC/easyC_C1.mp4',
-      'assets/easyC/easyC_C2.mp4',
-      'assets/easyC/easyC_C3.mp4'
-    )
-  } else {
-    createVideos(
-      'assets/easyC/easyC1.mp4',
-      'assets/easyC/easyC2.mp4',
-      'assets/easyC/easyC3.mp4'
-    )
-  }
 
-  // padding: 3vh 4vh 3vh 4vh;
   window.addEventListener('resize', function (e) {
     if (showCont.hasChildNodes()) {
-      const textContainer = document.querySelector('#centerContainer_text')
-
+    
       const backButtonContainer = document.querySelector(
         '#centerContainer_backButton'
       )
-      textContainer.remove()
-
-      backButtonContainer.remove()
-      createContent(
-        '58%',
-        '20%',
-        'Easy Changeover&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
-        `Manual tool changeover takes about one minute`,
-        'easyC_p',
-        '',
-        '',
-        '2vh 4vh 2vh 4vh',
-        ''
-      )
-      animations()
-      // padding: 3vh 4vh 3vh 4vh;
+ 
+      backButtonContainer.remove()    
+    
       createBackButton()
     }
   })
-
-  createContent(
-    '58%',
-    '20%',
-    'Easy Changeover&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
-    `Manual tool changeover takes about one minute`,
-    'easyC_p',
-    '',
-    '',
-    '2vh 4vh 2vh 4vh'
-  )
 
   createBackButton()
 
@@ -711,7 +754,7 @@ easyC_button.addEventListener('click', function (e) {
         setTimeout(() => {
           video1.play()
           video1.addEventListener('ended', () => {
-            animations()
+            
             InterpolateVideo(loop, video1, video2)
             HideShowCont()
           })
@@ -721,56 +764,38 @@ easyC_button.addEventListener('click', function (e) {
   }
 })
 
-flexibleI_button.addEventListener('click', function (e) {
+reports_button.addEventListener('click', function (e) {
   HideShowMainButtons()
-
-  if (x.matches) {
-    createVideos(
-      'assets/flexibleI/flexibleI_C1.mp4',
-      'assets/flexibleI/flexibleI_C2.mp4',
-      'assets/flexibleI/flexibleI_C3.mp4'
-    )
-  } else {
-    createVideos(
-      'assets/flexibleI/flexibleI1.mp4',
-      'assets/flexibleI/flexibleI2.mp4',
-      'assets/flexibleI/flexibleI3.mp4'
-    )
-  }
-  createContent(
-    '66%',
-    '37.5%',
-    'Flexible Infeed \nDirection',
-    `Choose the right configuration for your plant layout`,
-    'flexibleI_p',
-    'flexibleI_text',
-    'flexibleI_label',
-    '2vh 4vh 2vh 4vh'
+  createVideos(
+    'assets/highRes/reports1.mp4',
+    'assets/highRes/reports2.mp4',
+    'assets/highRes/reports3.mp4'
   )
+  // if (x.matches) {
+  //   createVideos(
+  //     'assets/flexibleI/flexibleI_C1.mp4',
+  //     'assets/flexibleI/flexibleI_C2.mp4',
+  //     'assets/flexibleI/flexibleI_C3.mp4'
+  //   )
+  // } else {
+  //   createVideos(
+  //     'assets/highRes/reports1.mp4',
+  //     'assets/highRes/reports2.mp4',
+  //     'assets/highRes/reports3.mp4'
+  //   )
+  // }
 
   createBackButton()
 
   window.addEventListener('resize', function (e) {
     if (showCont.hasChildNodes()) {
-      const textContainer = document.querySelector('#centerContainer_text')
 
       const backButtonContainer = document.querySelector(
         '#centerContainer_backButton'
       )
-      textContainer.remove()
-
+     
       backButtonContainer.remove()
-      createContent(
-        '66%',
-        '37.5%',
-        'Flexible Infeed \nDirection',
-        `Choose the right configuration for your plant layout`,
-        'flexibleI_p',
-        'flexibleI_text',
-        'flexibleI_label',
-        '2vh 4vh 2vh 4vh'
-      )
-      animations()
+   
       createBackButton()
     }
   })
@@ -810,7 +835,7 @@ flexibleI_button.addEventListener('click', function (e) {
         setTimeout(() => {
           video1.play()
           setTimeout(() => {
-            animations()
+           
             HideShowCont()
             InterpolateVideo(loop, video1, video2)
           }, 6000)
@@ -820,59 +845,41 @@ flexibleI_button.addEventListener('click', function (e) {
   }
 })
 
-maximumU_button.addEventListener('click', function (e) {
+casseteR_button.addEventListener('click', function (e) {
   HideShowMainButtons()
-
-  if (x.matches) {
-    createVideos(
-      'assets/maximumU/maximumU_C1.mp4',
-      'assets/maximumU/maximumU_C2.mp4',
-      'assets/maximumU/maximumU_C3.mp4'
-    )
-  } else {
-    createVideos(
-      'assets/maximumU/maximumU1.mp4',
-      'assets/maximumU/maximumU2.mp4',
-      'assets/maximumU/maximumU3.mp4'
-    )
-  }
-
-  createContent(
-    '57.5%',
-    '16%',
-    'Maximum Uptime&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
-    'Robot Mean Time Between Failures: over 80,000 hrs',
-    'maximumU_p',
-    '',
-    '',
-    '2vh 4vh 2vh 4vh',
-    'Minimal maintenance requirements'
+  createVideos(
+    'assets/highRes/casseteR1.mp4',
+    'assets/highRes/casseteR2.mp4',
+    'assets/highRes/casseteR3.mp4'
   )
+  // if (x.matches) {
+  //   createVideos(
+  //     'assets/maximumU/maximumU_C1.mp4',
+  //     'assets/maximumU/maximumU_C2.mp4',
+  //     'assets/maximumU/maximumU_C3.mp4'
+  //   )
+  // } else {
+  //   createVideos(
+  //     'assets/highRes/casseteR1.mp4',
+  //     'assets/highRes/casseteR2.mp4',
+  //     'assets/highRes/casseteR3.mp4'
+  //   )
+  // }
+
+
 
   createBackButton()
 
   window.addEventListener('resize', function (e) {
     if (showCont.hasChildNodes()) {
-      const textContainer = document.querySelector('#centerContainer_text')
+ 
 
       const backButtonContainer = document.querySelector(
         '#centerContainer_backButton'
       )
-      textContainer.remove()
 
       backButtonContainer.remove()
-      createContent(
-        '57.5%',
-        '16%',
-        'Maximum Uptime&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
-        'Robot Mean Time Between Failures: over 80,000 hrs',
-        'maximumU_p',
-        '',
-        '',
-        '2vh 4vh 2vh 4vh',
-        'Minimal maintenance requirements'
-      )
-      animations()
+  
       createBackButton()
     }
   })
@@ -913,7 +920,7 @@ maximumU_button.addEventListener('click', function (e) {
         setTimeout(() => {
           video1.play()
           video1.addEventListener('ended', () => {
-            animations()
+       
             InterpolateVideo(loop, video1, video2)
             HideShowCont()
           })
@@ -923,106 +930,174 @@ maximumU_button.addEventListener('click', function (e) {
   }
 })
 
-quickS_button.addEventListener('click', function (e) {
+coinH_button.addEventListener('click', function (e) {
   HideShowMainButtons()
-  quickS = true
-  if (x.matches) {
-    createVideos(null, 'assets/quickS/quickS_C.mp4', null)
-  } else {
-    createVideos(null, 'assets/quickS/quickS.mp4', null)
-  }
-
-  createContent(
-    '15%',
-    '35%',
-    'Quick Start-up&nbsp;&nbsp;&nbsp;&nbsp;',
-    'Pre-assembled cell',
-    'quickS_p',
-    '',
-    '',
-    '2vh 4vh 2vh 4vh',
-    'Common base for easy placement and start-up'
+  createVideos(
+    'assets/highRes/coinH1.mp4',
+    'assets/highRes/coinH2.mp4',
+    'assets/highRes/coinH3.mp4'
   )
+  // if (x.matches) {
+  //   createVideos(
+  //     'assets/maximumU/maximumU_C1.mp4',
+  //     'assets/maximumU/maximumU_C2.mp4',
+  //     'assets/maximumU/maximumU_C3.mp4'
+  //   )
+  // } else {
+  //   createVideos(
+  //     'assets/highRes/coinH1.mp4',
+  //     'assets/highRes/coinH2.mp4',
+  //     'assets/highRes/coinH3.mp4'
+  //   )
+  // }
+
+
+
+  createBackButton()
 
   window.addEventListener('resize', function (e) {
     if (showCont.hasChildNodes()) {
-      const textContainer = document.querySelector('#centerContainer_text')
+ 
 
       const backButtonContainer = document.querySelector(
         '#centerContainer_backButton'
       )
-      textContainer.remove()
 
       backButtonContainer.remove()
-      createContent(
-        '15%',
-        '35%',
-        'Quick Start-up&nbsp;&nbsp;&nbsp;&nbsp;',
-        'Pre-assembled cell',
-        'quickS_p',
-        '',
-        '',
-        '2vh 4vh 2vh 4vh',
-        'Common base for easy placement and start-up'
-      )
-      animations()
+  
       createBackButton()
     }
   })
 
-  createBackButton()
-
   check1()
-
+  let video1check = false
   let video2check = false
+  let video3check = false
 
   function check1() {
     clearcheck = setInterval(repeatcheck, 500)
+
     function repeatcheck() {
+      if (video1.readyState === 4) {
+        video1check = true
+      }
       if (video2.readyState === 4) {
         video2check = true
       }
+      if (video3.readyState === 4) {
+        video3check = true
+      }
       setTimeout(() => {
-        if (!video2check) {
+        if (!video1check || !video2check || !video3check) {
           loader.style.zIndex = '200'
           loader.classList.add('show')
         }
       }, 1000)
 
-      if (video2check) {
+      if (video1check && video2check && video3check) {
         loader.classList.remove('show')
         loader.classList.add('short-vanish')
         loader.style.zIndex = '-200'
-        animations()
+
         clearInterval(clearcheck)
 
-        video2.play()
-
-        InterpolateVideo(loop, loop, video2)
-        HideShowCont()
+        loop.classList.add('short-vanish')
         setTimeout(() => {
-          loop.currentTime = 0
-          loop.pause()
-          loop.style.zIndex = '-5'
-        }, 500)
+          video1.play()
+          video1.addEventListener('ended', () => {
+       
+            InterpolateVideo(loop, video1, video2)
+            HideShowCont()
+          })
+        }, 1000)
       }
     }
   }
 })
+three_button.addEventListener('click', function (e) {
+  HideShowMainButtons()
+  createVideos(
+    'assets/highRes/three1.mp4',
+    'assets/highRes/three2.mp4',
+    'assets/highRes/three3.mp4'
+  )
+  // if (x.matches) {
+  //   createVideos(
+  //     'assets/maximumU/maximumU_C1.mp4',
+  //     'assets/maximumU/maximumU_C2.mp4',
+  //     'assets/maximumU/maximumU_C3.mp4'
+  //   )
+  // } else {
+  //   createVideos(
+  //     'assets/highRes/three1.mp4',
+  //     'assets/highRes/three2.mp4',
+  //     'assets/highRes/three3.mp4'
+  //   )
+  // }
 
-// Check when the spinner is fully loaded
-var SirvOptions = {
-  spin: {
-    onready: function () {
-      initial.classList.remove('show')
-      initial.classList.add('short-vanish')
-      loader.style.zIndex = '-100'
+
+
+  createBackButton()
+
+  window.addEventListener('resize', function (e) {
+    if (showCont.hasChildNodes()) {
+ 
+
+      const backButtonContainer = document.querySelector(
+        '#centerContainer_backButton'
+      )
+
+      backButtonContainer.remove()
+  
+      createBackButton()
+    }
+  })
+
+  check1()
+  let video1check = false
+  let video2check = false
+  let video3check = false
+
+  function check1() {
+    clearcheck = setInterval(repeatcheck, 500)
+
+    function repeatcheck() {
+      if (video1.readyState === 4) {
+        video1check = true
+      }
+      if (video2.readyState === 4) {
+        video2check = true
+      }
+      if (video3.readyState === 4) {
+        video3check = true
+      }
       setTimeout(() => {
-        initial.style.zIndex = '-200'
-      }, 300)
-    },
-  },
-}
+        if (!video1check || !video2check || !video3check) {
+          loader.style.zIndex = '200'
+          loader.classList.add('show')
+        }
+      }, 1000)
+
+      if (video1check && video2check && video3check) {
+        loader.classList.remove('show')
+        loader.classList.add('short-vanish')
+        loader.style.zIndex = '-200'
+
+        clearInterval(clearcheck)
+
+        loop.classList.add('short-vanish')
+        setTimeout(() => {
+          video1.play()
+          video1.addEventListener('ended', () => {
+       
+            InterpolateVideo(loop, video1, video2)
+            HideShowCont()
+          })
+        }, 1000)
+      }
+    }
+  }
+})
 
 close.addEventListener('click', function (e) {
   modalalert.style.pointerEvents = 'none'
