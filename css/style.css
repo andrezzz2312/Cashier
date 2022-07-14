@@ -3,460 +3,467 @@
 *,
 ::after,
 ::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 * {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
 }
 
 .loader {
-  display: flex;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  align-items: center;
-  justify-content: center;
-  z-index: -200;
+	display: flex;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	align-items: center;
+	justify-content: center;
+	z-index: -200;
 }
 .loadingIcon {
-  color: #ff4500;
-  font-size: 5rem;
-  animation: spin 2s linear infinite;
+	color: #ff4500;
+	font-size: 5rem;
+	animation: spin 2s linear infinite;
 }
 
 .mainButtons {
-  opacity: 0;
+	opacity: 0;
 }
 
 .initial {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  left: 0;
-  top: 0;
-  background-color: rgb(255, 255, 255);
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+	background-color: rgb(255, 255, 255);
 }
 body {
-  position: absolute;
-  height: 100%;
-  width: 100%;
+	position: absolute;
+	height: 100%;
+	width: 100%;
 }
 
 .viewR_a {
-  border-radius: 0.5vh;
-  border: none;
-  width: 20%;
-  padding: 1% 1%;
-  color: white;
-  background-color: #114494;
-  cursor: pointer;
-  z-index: 2;
-  overflow: hidden;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  animation: morph 2s ease-in-out infinite;
-  /* position: relative; */
-  height: auto;
-  margin-bottom: 2%;
-  pointer-events: all;
-  margin-right: 2%;
+	border-radius: 0.5vh;
+	border: none;
+	width: 20%;
+	padding: 1% 1%;
+	color: white;
+	background-color: #114494;
+	cursor: pointer;
+	z-index: 2;
+	overflow: hidden;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	animation: morph 2s ease-in-out infinite;
+	/* position: relative; */
+	height: auto;
+	margin-bottom: 2%;
+	pointer-events: all;
+	margin-right: 2%;
+}
+
+#fullscreen_button {
+	margin-top: 1%;
+	margin-right: 1%;
+	width: min-content;
+	z-index: 5;
+	cursor: pointer;
 }
 
 .centerContainer {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-  z-index: 1;
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
+	z-index: 1;
 }
 .centerContainer > * {
-  pointer-events: all;
+	pointer-events: all;
 }
 #blankSpace_centerContainer {
-  position: relative;
-  pointer-events: none;
+	position: relative;
+	pointer-events: none;
 }
 .buttonContainer {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  margin-left: 4rem;
-  justify-content: center;
-  gap: 2%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.mainMenu {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+	justify-content: center;
+	gap: 2%;
+	position: relative;
+	margin-left: 23%;
 }
 #buttonContainer_backButton {
-  pointer-events: none;
+	pointer-events: none;
 }
 .blankSpaceContainer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  pointer-events: none;
-  width: 100%;
-  height: 9%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+	pointer-events: none;
+	width: 100%;
+	height: 9%;
 }
 .blankSpace {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: hsla(0, 0%, 100%, 100%);
-  z-index: 1;
-  overflow: hidden;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: hsla(0, 0%, 100%, 100%);
+	z-index: 1;
+	overflow: hidden;
 }
-.svgContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 .videoContainer > video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
 }
 .disabled > div > div > button {
-  pointer-events: none;
+	pointer-events: none;
 }
 .disabledb {
-  display: none !important;
+	display: none !important;
 }
 
 video::-webkit-media-controls {
-  display: none !important;
+	display: none !important;
 }
 
 *::-webkit-media-controls-start-playback-button {
-  display: none !important;
-  -webkit-appearance: none;
+	display: none !important;
+	-webkit-appearance: none;
 }
 video::slotted::-webkit-media-controls-container {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  -webkit-appearance: none !important;
+	display: none !important;
+	visibility: hidden !important;
+	opacity: 0 !important;
+	-webkit-appearance: none !important;
 }
 
 .button {
-  border-radius: 0.5vh;
-  border: none;
-  width: 20%;
-  padding: 1% 1%;
-  color: white;
-  background-color: #114494;
-  cursor: pointer;
-  z-index: 2;
-  overflow: hidden;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  animation: morph 2s ease-in-out infinite;
+	border-radius: 0.5vh;
+	border: none;
+	width: 20%;
+	padding: 1% 1%;
+	color: white;
+	background-color: #114494;
+	cursor: pointer;
+	z-index: 2;
+	overflow: hidden;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	animation: morph 2s ease-in-out infinite;
 }
 a {
-  text-decoration: none;
-  color: white;
+	text-decoration: none;
+	color: white;
 }
 .Sirv {
-  background-color: white;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
+	background-color: white;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
 }
 
 #test {
-  left: 8%;
-  top: 50%;
+	left: 8%;
+	top: 50%;
 }
 .viewR_container {
-  display: flex;
-  justify-content: flex-end;
-  
-  align-items: flex-end;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
+	display: flex;
+	justify-content: flex-end;
+
+	align-items: flex-end;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
 }
 #centerContainer_backButton {
-  pointer-events: none;
-}
-
-.svgDot {
-  position: absolute;
-  left: 30%;
-  top: 30%;
-  /* -webkit-animation: morph 1s ease-in-out infinite;
-  -moz-animation: morph 1s ease-in-out infinite;
-  -o-animation: morph 1s ease-in-out infinite;
-  animation: morph 1s ease-in-out infinite; */
+	pointer-events: none;
 }
 
 .hidden {
-  opacity: 0;
-  pointer-events: none;
+	opacity: 0;
+	pointer-events: none;
 }
 
 .videoContainer {
-  position: relative;
-  width: 100%;
-  height: 100%;
+	position: relative;
+	width: 100%;
+	height: 100%;
 }
 
 .container {
-  position: relative;
-  overflow: hidden;
-  height: 100%;
-  width: 100%;
+	position: relative;
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
 }
 .showCont {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
 }
 
 .text {
-  position: relative;
-  display: inline-grid;
-  z-index: 1;
+	position: relative;
+	display: inline-grid;
+	z-index: 1;
 }
 .labelCont {
-  white-space: pre-wrap;
-  position: relative;
-  width: max-content;
-  background-color: #ff4500;
-  padding: 1.5vh;
-  transform: scaleY(0);
-  text-align: start;
-  color: white;
-  border-radius: 2vh 2vh 0 0;
+	white-space: pre-wrap;
+	position: relative;
+	width: max-content;
+	background-color: #ff4500;
+	padding: 1.5vh;
+	transform: scaleY(0);
+	text-align: start;
+	color: white;
+	border-radius: 2vh 2vh 0 0;
 
-  overflow: hidden;
+	overflow: hidden;
 }
 .label {
-  display: inline-block;
-  font-weight: 600;
-  opacity: 0;
-  overflow: hidden;
+	display: inline-block;
+	font-weight: 600;
+	opacity: 0;
+	overflow: hidden;
 }
 .pCont {
-  padding: 2vh 4vh 4vh 4vh;
-  background-color: hsla(0, 0%, 35%, 90%);
-  color: white;
-  border-radius: 0 0 1rem 1rem;
-  transform: scale(0);
-  overflow: hidden;
+	padding: 2vh 4vh 4vh 4vh;
+	background-color: hsla(0, 0%, 35%, 90%);
+	color: white;
+	border-radius: 0 0 1rem 1rem;
+	transform: scale(0);
+	overflow: hidden;
 }
 ul {
-  list-style: none; /* Remove default bullets */
-  opacity: 0;
+	list-style: none; /* Remove default bullets */
+	opacity: 0;
 }
 ul li {
-  margin-bottom: 1em;
+	margin-bottom: 1em;
 }
 li:last-child {
-  margin-bottom: 0;
+	margin-bottom: 0;
 }
 ul li::before {
-  content: '\2022'; /* Add content: \2022 is the CSS Code/unicode for a bullet */
-  color: #ff4500; /* Change the color */
-  font-weight: bold; /* If you want it to be bold */
-  display: inline-block; /* Needed to add space between the bullet and the text */
-  width: 0.8em; /* Also needed for space (tweak if needed) */
-  margin-left: -0.9em; /* Also needed for space (tweak if needed) */
+	content: '\2022'; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+	color: #ff4500; /* Change the color */
+	font-weight: bold; /* If you want it to be bold */
+	display: inline-block; /* Needed to add space between the bullet and the text */
+	width: 0.8em; /* Also needed for space (tweak if needed) */
+	margin-left: -0.9em; /* Also needed for space (tweak if needed) */
 }
 
 .backButton {
-  position: relative;
-  border: none;
-  padding: 0.5rem 1.5rem;
-  color: white;
-  background-color: #ff4500;
-  cursor: pointer;
-  z-index: 50;
-  overflow: hidden;
-  font-size: calc(8px + (14 - 8) * ((100vw - 320px) / (1440 - 320)));
+	position: relative;
+	border: none;
+	padding: 0.5rem 1.5rem;
+	color: white;
+	background-color: #ff4500;
+	cursor: pointer;
+	z-index: 50;
+	overflow: hidden;
+	font-size: calc(8px + (14 - 8) * ((100vw - 320px) / (1440 - 320)));
 }
 
 .short-vanish {
-  animation: vanish 0.5s ease-in-out forwards;
-  pointer-events: none;
+	animation: vanish 0.5s ease-in-out forwards;
+	pointer-events: none;
+}
+.vanish {
+	animation: vanish 1.5s ease-in-out forwards;
+	pointer-events: none;
 }
 .show {
-  animation: show 0.5s ease-in-out forwards;
-  pointer-events: all;
+	animation: show 0.5s ease-in-out forwards;
+	pointer-events: all;
 }
 
 .warning {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: hsla(239, 20%, 10%, 0.82);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: -100;
-  opacity: 0;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: hsla(239, 20%, 10%, 0.82);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: -100;
+	opacity: 0;
 }
 .modal {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  padding: 3rem;
-  border-radius: 2rem;
-  margin: 2rem;
-  text-align: center;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	justify-content: center;
+	align-items: center;
+	background-color: white;
+	padding: 3rem;
+	border-radius: 2rem;
+	margin: 2rem;
+	text-align: center;
 }
 
 .warnIcon {
-  font-size: 3rem;
-  color: #ff4500;
+	font-size: 3rem;
+	color: #ff4500;
 }
 
 .alertdiv {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: hsla(239, 20%, 10%, 0.82);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
-  opacity: 1;
-  transition: 1s all ease-in-out;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: hsla(239, 20%, 10%, 0.82);
+	display: none;
+	align-items: center;
+	justify-content: center;
+	z-index: 100;
+	opacity: 1;
+	transition: 1s all ease-in-out;
 }
 .x {
-  position: absolute;
-  right: 2rem;
-  top: 1.5rem;
-  align-self: flex-end;
-  cursor: pointer;
+	position: absolute;
+	right: 2rem;
+	top: 1.5rem;
+	align-self: flex-end;
+	cursor: pointer;
 }
 
 .modalalert {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  background-color: white;
-  padding: 3rem;
-  border-radius: 2rem;
-  transition: 1s all ease-in-out;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	background-color: white;
+	padding: 3rem;
+	border-radius: 2rem;
+	transition: 1s all ease-in-out;
 }
 .modalclosed {
-  transform: scale(0);
+	transform: scale(0);
 }
 .alertIcon {
-  justify-self: center;
-  align-self: center;
-  font-size: 3rem;
-  color: #ff4500;
+	justify-self: center;
+	align-self: center;
+	font-size: 3rem;
+	color: #ff4500;
 }
 
 @media (max-height: 550px) and (orientation: landscape) {
-  p {
-    font-size: calc(6px + (14 - 6) * ((100vw - 320px) / (1440 - 320)));
-  }
- 
-  .backButton {
-    font-size: calc(8px + (12 - 8) * ((100vw - 320px) / (1440 - 320)));
-  }
+	p {
+		font-size: calc(6px + (14 - 6) * ((100vw - 320px) / (1440 - 320)));
+	}
+
+	.backButton {
+		font-size: calc(8px + (12 - 8) * ((100vw - 320px) / (1440 - 320)));
+	}
 }
 
 @keyframes vanish {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
 }
 
 @keyframes show {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 @keyframes morph {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(0.97);
-  }
-  100% {
-    transform: scale(1);
-  }
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(0.97);
+	}
+	100% {
+		transform: scale(1);
+	}
 }
 @keyframes growtall {
-  0% {
-    transform: scaleY(0);
-  }
-  100% {
-    transform: scaleY(1);
-  }
+	0% {
+		transform: scaleY(0);
+	}
+	100% {
+		transform: scaleY(1);
+	}
 }
 @keyframes grow {
-  0% {
-    transform-origin: top center;
-    transform: scale(0);
-  }
-  100% {
-    transform-origin: top center;
-    transform: scale(1);
-  }
+	0% {
+		transform-origin: top center;
+		transform: scale(0);
+	}
+	100% {
+		transform-origin: top center;
+		transform: scale(1);
+	}
 }
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
 @keyframes fadein {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, 100%, 0);
-  }
+	0% {
+		opacity: 0;
+		transform: translate3d(0, 100%, 0);
+	}
 
-  100% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
+	100% {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
 }
 
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
