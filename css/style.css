@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
+@font-face {
+	font-family: ArialImported;
+	src: url(/assets/fonts/arial.ttf);
+}
 *,
 ::after,
 ::before {
@@ -9,8 +12,9 @@
 }
 
 * {
-	font-family: 'Roboto', sans-serif;
-	font-weight: 400;
+	font-family: ArialImported;
+	font-weight: normal;
+	letter-spacing: 1px;
 }
 
 .loader {
@@ -70,7 +74,7 @@ body {
 #fullscreen_button {
 	margin-top: 1%;
 	margin-right: 1%;
-	width: min-content;
+	width: 5%;
 	z-index: 5;
 	cursor: pointer;
 }
@@ -167,8 +171,8 @@ video::slotted::-webkit-media-controls-container {
 .button {
 	border-radius: 0.5vh;
 	border: none;
-	width: 20%;
-	padding: 1% 1%;
+	width: 19%;
+	padding: 0.8% 0%;
 	color: white;
 	background-color: #114494;
 	cursor: pointer;
@@ -304,8 +308,12 @@ ul li::before {
 	animation: vanish 1.5s ease-in-out forwards;
 	pointer-events: none;
 }
-.show {
+.short-show {
 	animation: show 0.5s ease-in-out forwards;
+	pointer-events: all;
+}
+.show {
+	animation: show 1.5s ease-in-out forwards;
 	pointer-events: all;
 }
 

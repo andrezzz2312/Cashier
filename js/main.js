@@ -70,8 +70,7 @@ function InterpolateVideo(videoToPause, videoToVanish, videoToPlay) {
 function HideShowMainButtons() {
 	mainButtons.classList.toggle('show')
 	mainButtons.classList.toggle('disabled')
-	mainButtons.classList.toggle('short-vanish')
-	console.log('hideshowmainbuttons')
+	mainButtons.classList.toggle('vanish')
 }
 
 // Vanish/show when a main button is pressed
@@ -143,7 +142,7 @@ function createVideos(source1, source2, source3) {
 function setFontSizes() {
 	const button = document.querySelectorAll('.button')
 
-	let fontvar = `calc(5px + (25 - 5) * ((${
+	let fontvar = `calc(5px + (22 - 5) * ((${
 		containVideoWidth + 'px'
 	} - 320px) / (1440 - 320)))`
 
@@ -229,7 +228,7 @@ function createBackButton() {
 	buttonContainerMade.style.width = containVideoWidth + 'px'
 	buttonContainerMade.style.height = containVideoHeight + 'px'
 	backButton = document.createElement('button')
-	let fontvar = `calc(5px + (25 - 5) * ((${
+	let fontvar = `calc(5px + (24 - 5) * ((${
 		containVideoWidth + 'px'
 	} - 320px) / (1440 - 320)))`
 	backButton.style.fontSize = fontvar
