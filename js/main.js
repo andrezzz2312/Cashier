@@ -840,71 +840,110 @@ coinH_button.addEventListener('click', function (e) {
 	}
 })
 
+var SirvOptions = {
+	spin: {
+		onready: function () {
+			initial.classList.remove('show')
+			initial.classList.add('short-vanish')
+			loader.style.zIndex = '-100'
+			setTimeout(() => {
+				initial.style.zIndex = '-200'
+			}, 300)
+		},
+	},
+}
+
 three_button.addEventListener('click', function (e) {
+	loader.classList.remove('short-vanish')
+	loader.style.zIndex = '1'
+	initial.style.zIndex = '0'
+	initial.classList.remove('short-vanish')
+	initial.classList.add('show')
+
 	HideShowMainButtons()
-	createVideos(
-		'assets/highRes/three1.mp4',
-		'assets/highRes/three2.mp4',
-		'assets/highRes/three3.mp4'
-	)
-	checkVideos()
-	createBackButton()
+	HideShowCont()
+
+	const centerContainerMade = document.createElement('div')
+	centerContainerMade.classList.add('centerContainer')
+	centerContainerMade.style.opacity = '0'
+	centerContainerMade.classList.add('show')
+	centerContainerMade.style.zIndex = '100'
+	centerContainerMade.setAttribute('id', 'centerContainer_backButton')
+	const buttonContainerMade = document.createElement('div')
+	buttonContainerMade.classList.add('buttonContainer')
+	buttonContainerMade.setAttribute('id', 'buttonContainer_backButton')
+	buttonContainerMade.style.width = containVideoWidth + 'px'
+	buttonContainerMade.style.height = containVideoHeight + 'px'
+	backButton = document.createElement('button')
+	backButton.classList.add('viewR_a')
+	backButton.textContent = 'Back'
+	let fontvar = `calc(5px + (22 - 5) * ((${
+		containVideoWidth + 'px'
+	} - 320px) / (1440 - 320)))`
+	backButton.style.fontSize = fontvar
+	backButtonContainer = document.createElement('div')
+	backButtonContainer.classList.add('viewR_container')
+
+	mainContainer.appendChild(centerContainerMade)
+	centerContainerMade.append(buttonContainerMade)
+	buttonContainerMade.appendChild(backButtonContainer)
+
+	backButtonContainer.appendChild(backButton)
 
 	window.addEventListener('resize', function (e) {
-		if (showCont.hasChildNodes()) {
-			const backButtonContainer = document.querySelector(
-				'#centerContainer_backButton'
-			)
-
-			backButtonContainer.remove()
-
-			createBackButton()
+		if (centerContainerMade.hasChildNodes()) {
+			buttonContainerMade.style.width = containVideoWidth + 'px'
+			buttonContainerMade.style.height = containVideoHeight + 'px'
+			let fontvar = `calc(5px + (22 - 5) * ((${
+				containVideoWidth + 'px'
+			} - 320px) / (1440 - 320)))`
+			backButton.style.fontSize = fontvar
 		}
 	})
 
-	check1()
-	let video1check = false
-	let video2check = false
-	let video3check = false
+	backButton.addEventListener('click', function () {
+		ArreglarLineas()
+		backButton.style.pointerEvents = 'none'
+		loop.style.zIndex = '-5'
+		loop.currentTime = 0
+		loop.classList.remove('short-vanish')
 
-	function check1() {
-		clearcheck = setInterval(repeatcheck, 500)
+		centerContainerMade.classList.remove('show')
+		centerContainerMade.classList.add('short-vanish')
 
-		function repeatcheck() {
-			if (video1.readyState === 4) {
-				video1check = true
-			}
-			if (video2.readyState === 4) {
-				video2check = true
-			}
-			if (video3.readyState === 4) {
-				video3check = true
-			}
+		HideShowCont()
+		setTimeout(() => {
+			initial.classList.remove('show')
+			initial.classList.add('short-vanish')
+			loader.style.zIndex = '-100'
 			setTimeout(() => {
-				if (!video1check || !video2check || !video3check) {
-					loader.style.zIndex = '200'
-					loader.classList.add('show')
-				}
-			}, 1000)
+				initial.style.zIndex = '-200'
+			}, 300)
+		}, 500)
 
-			if (video1check && video2check && video3check) {
-				loader.classList.remove('show')
-				loader.classList.add('short-vanish')
-				loader.style.zIndex = '-200'
+		HideShowMainButtons()
 
-				clearInterval(clearcheck)
+		setTimeout(() => {
+			loop.style.zIndex = '-1'
+			showCont.innerHTML = ''
 
-				loop.classList.add('short-vanish')
-				setTimeout(() => {
-					video1.play()
-					HideShowCont()
-					video1.addEventListener('ended', () => {
-						InterpolateVideo(loop, video1, video2)
-					})
-				}, 1000)
-			}
-		}
-	}
+			centerContainer_backButton.remove()
+		}, 1000)
+	})
+
+	setTimeout(() => {
+		const centerContainerMade = document.createElement('div')
+		centerContainerMade.classList.add('centerContainer')
+		centerContainerMade.setAttribute('id', 'centerContainer_model')
+		const model = document.createElement('div')
+		model.classList.add('Sirv')
+		model.setAttribute(
+			'data-src',
+			'https://rotation.marketscale.com/Companies/Tidel/TR400%20Rotation%20V2/TR400%20Rotation%20V2.spin?zoom=5'
+		)
+
+		showCont.appendChild(model)
+	}, 1000)
 })
 
 close.addEventListener('click', function (e) {
