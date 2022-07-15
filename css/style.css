@@ -29,7 +29,7 @@
 	z-index: -200;
 }
 .loadingIcon {
-	color: #ff4500;
+	color: #114494;
 	font-size: 5rem;
 	animation: spin 2s linear infinite;
 }
@@ -194,7 +194,9 @@ a {
 	height: 100%;
 	z-index: -1;
 }
-
+.sirv-spin-loading-box {
+	display: none;
+}
 #test {
 	left: 8%;
 	top: 50%;
