@@ -392,6 +392,28 @@ ul li::before {
 	color: #ff4500;
 }
 
+#quality_button {
+	width: max-content;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	height: auto;
+	border: none;
+	color: black;
+	background-color: white;
+	cursor: pointer;
+	z-index: 2;
+	overflow: hidden;
+	padding: 0.8% 0.8%;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	margin-bottom: 1rem;
+	margin-right: 1rem;
+	font-weight: bold;
+	animation: morph 2s ease-in-out infinite;
+	pointer-events: all;
+	border-radius: 1vh;
+}
+
 @media (max-height: 550px) and (orientation: landscape) {
 	p {
 		font-size: calc(6px + (14 - 6) * ((100vw - 320px) / (1440 - 320)));

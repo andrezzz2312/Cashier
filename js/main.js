@@ -39,6 +39,8 @@ const contract = document.querySelector('#contract')
 const close = document.querySelector('#close')
 const alertdiv = document.querySelector('.alertdiv')
 const modalalert = document.querySelector('.modalalert')
+const quality = document.querySelector('#quality_button')
+let isHD = false
 let details = navigator.userAgent
 let regexp = /android|iphone|kindle|ipad/i
 let ios = /iphone|ipad/i
@@ -46,6 +48,10 @@ let macosPlatforms = /(macintosh|macintel|macppc|mac68k|macos)/i
 let isMobileDevice = regexp.test(details)
 let isIOS = ios.test(details)
 let isMac = macosPlatforms.test(details)
+
+isHD = false
+loop.src = 'assets/lowRes/main.mp4'
+quality.textContent = 'SD'
 
 if (!isMobileDevice) {
 	fullscreen_button.style.display = 'none'
@@ -149,6 +155,7 @@ function setFontSizes() {
 	for (let i = 0; i < button.length; i++) {
 		button[i].style.fontSize = fontvar
 	}
+	quality.style.fontSize = fontvar
 }
 
 function checkVideos() {
@@ -358,6 +365,17 @@ window.addEventListener('resize', function () {
 })
 
 ////////// Event Listeners for the main buttons //////////
+
+quality_button.addEventListener('click', function (e) {
+	isHD = !isHD
+
+	if (isHD) {
+		quality.textContent = 'HD'
+	} else {
+		quality.textContent = 'SD'
+	}
+})
+
 fullscreen_button.addEventListener('click', function (e) {
 	expand.classList.toggle('disabledb')
 	contract.classList.toggle('disabledb')
@@ -372,11 +390,20 @@ fullscreen_button.addEventListener('click', function (e) {
 
 systemC_button.addEventListener('click', function (e) {
 	HideShowMainButtons()
-	createVideos(
-		'assets/highRes/systemC1.mp4',
-		'assets/highRes/systemC2.mp4',
-		'assets/highRes/systemC3.mp4'
-	)
+	if (isHD === false) {
+		createVideos(
+			'assets/lowRes/systemC1.mp4',
+			'assets/lowRes/systemC2.mp4',
+			'assets/lowRes/systemC3.mp4'
+		)
+	} else {
+		createVideos(
+			'assets/highRes/systemC1.mp4',
+			'assets/highRes/systemC2.mp4',
+			'assets/highRes/systemC3.mp4'
+		)
+	}
+
 	checkVideos()
 	createBackButton()
 
@@ -439,11 +466,20 @@ systemC_button.addEventListener('click', function (e) {
 
 startS_button.addEventListener('click', function (e) {
 	HideShowMainButtons()
-	createVideos(
-		'assets/highRes/startS1.mp4',
-		'assets/highRes/startS2.mp4',
-		'assets/highRes/startS3.mp4'
-	)
+	if (isHD === false) {
+		createVideos(
+			'assets/lowRes/startS1.mp4',
+			'assets/lowRes/startS2.mp4',
+			'assets/lowRes/startS3.mp4'
+		)
+	} else {
+		createVideos(
+			'assets/highRes/startS1.mp4',
+			'assets/highRes/startS2.mp4',
+			'assets/highRes/startS3.mp4'
+		)
+	}
+
 	checkVideos()
 	createBackButton()
 
@@ -506,11 +542,20 @@ startS_button.addEventListener('click', function (e) {
 
 endS_button.addEventListener('click', function (e) {
 	HideShowMainButtons()
-	createVideos(
-		'assets/highRes/endS1.mp4',
-		'assets/highRes/endS2.mp4',
-		'assets/highRes/endS3.mp4'
-	)
+	if (isHD === false) {
+		createVideos(
+			'assets/lowRes/endS1.mp4',
+			'assets/lowRes/endS2.mp4',
+			'assets/lowRes/endS3.mp4'
+		)
+	} else {
+		createVideos(
+			'assets/highRes/endS1.mp4',
+			'assets/highRes/endS2.mp4',
+			'assets/highRes/endS3.mp4'
+		)
+	}
+
 	checkVideos()
 	createBackButton()
 
@@ -572,11 +617,19 @@ endS_button.addEventListener('click', function (e) {
 
 manualD_button.addEventListener('click', function (e) {
 	HideShowMainButtons()
-	createVideos(
-		'assets/highRes/manualD1.mp4',
-		'assets/highRes/manualD2.mp4',
-		'assets/highRes/manualD3.mp4'
-	)
+	if (isHD === false) {
+		createVideos(
+			'assets/lowRes/manualD1.mp4',
+			'assets/lowRes/manualD2.mp4',
+			'assets/lowRes/manualD3.mp4'
+		)
+	} else {
+		createVideos(
+			'assets/highRes/manualD1.mp4',
+			'assets/highRes/manualD2.mp4',
+			'assets/highRes/manualD3.mp4'
+		)
+	}
 
 	window.addEventListener('resize', function (e) {
 		if (showCont.hasChildNodes()) {
@@ -638,11 +691,19 @@ manualD_button.addEventListener('click', function (e) {
 
 reports_button.addEventListener('click', function (e) {
 	HideShowMainButtons()
-	createVideos(
-		'assets/highRes/reports1.mp4',
-		'assets/highRes/reports2.mp4',
-		'assets/highRes/reports3.mp4'
-	)
+	if (isHD === false) {
+		createVideos(
+			'assets/lowRes/reports1.mp4',
+			'assets/lowRes/reports2.mp4',
+			'assets/lowRes/reports3.mp4'
+		)
+	} else {
+		createVideos(
+			'assets/highRes/reports1.mp4',
+			'assets/highRes/reports2.mp4',
+			'assets/highRes/reports3.mp4'
+		)
+	}
 
 	checkVideos()
 
@@ -706,13 +767,22 @@ reports_button.addEventListener('click', function (e) {
 	}
 })
 
-casseteR_button.addEventListener('click', function (e) {
+cassetteR_button.addEventListener('click', function (e) {
 	HideShowMainButtons()
-	createVideos(
-		'assets/highRes/casseteR1.mp4',
-		'assets/highRes/casseteR2.mp4',
-		'assets/highRes/casseteR3.mp4'
-	)
+	if (isHD === false) {
+		createVideos(
+			'assets/lowRes/casseteR1.mp4',
+			'assets/lowRes/casseteR2.mp4',
+			'assets/lowRes/casseteR3.mp4'
+		)
+	} else {
+		createVideos(
+			'assets/highRes/casseteR1.mp4',
+			'assets/highRes/casseteR2.mp4',
+			'assets/highRes/casseteR3.mp4'
+		)
+	}
+
 	checkVideos()
 	createBackButton()
 
@@ -775,11 +845,20 @@ casseteR_button.addEventListener('click', function (e) {
 
 coinH_button.addEventListener('click', function (e) {
 	HideShowMainButtons()
-	createVideos(
-		'assets/highRes/coinH1.mp4',
-		'assets/highRes/coinH2.mp4',
-		'assets/highRes/coinH3.mp4'
-	)
+	if (isHD === false) {
+		createVideos(
+			'assets/lowRes/coinH1.mp4',
+			'assets/lowRes/coinH2.mp4',
+			'assets/lowRes/coinH3.mp4'
+		)
+	} else {
+		createVideos(
+			'assets/highRes/coinH1.mp4',
+			'assets/highRes/coinH2.mp4',
+			'assets/highRes/coinH3.mp4'
+		)
+	}
+
 	checkVideos()
 	createBackButton()
 
